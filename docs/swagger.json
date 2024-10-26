@@ -1,0 +1,65 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is pantheon server: https://github.com/VikaPaz/pantheon.",
+        "title": "Pantheon Square API",
+        "contact": {}
+    },
+    "paths": {
+        "/app/": {
+            "post": {
+                "description": "Send welcome message",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "app"
+                ],
+                "summary": "Send welcome message",
+                "parameters": [
+                    {
+                        "description": "msg",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/server.mainRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "hello msg",
+                        "schema": {
+                            "$ref": "#/definitions/server.mainResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "server.mainRequest": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "server.mainResponse": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

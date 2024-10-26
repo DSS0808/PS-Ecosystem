@@ -1,0 +1,41 @@
+definitions:
+  server.mainRequest:
+    properties:
+      msg:
+        type: string
+    type: object
+  server.mainResponse:
+    properties:
+      msg:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: 'This is pantheon server: https://github.com/VikaPaz/pantheon.'
+  title: Pantheon Square API
+paths:
+  /app/:
+    post:
+      consumes:
+      - application/json
+      description: Send welcome message
+      parameters:
+      - description: msg
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/server.mainRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: hello msg
+          schema:
+            $ref: '#/definitions/server.mainResponse'
+        "400":
+          description: Bad Request
+      summary: Send welcome message
+      tags:
+      - app
+swagger: "2.0"

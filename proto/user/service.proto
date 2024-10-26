@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "./;user";
+
+package user;
+
+import "messages.proto";
+// import "proto/user/messages.proto";
+
+
+service UserService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUsersResponse);
+    rpc GetUserById(GetUsersByIdRequest) returns (GetUsersByIdResponse);
+    rpc GetUserByUsername(GetUserByUsernameRequest) returns (GetUserByUsernameResponse);
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+}
+
+message CreateUserRequest {
+    string username = 1;
+}
+
+message CreateUsersResponse {
+    User Users = 1;
+}
+
+message GetUsersByIdRequest {
+    string user_id = 1;
+}
+
+message GetUsersByIdResponse {
+    User Users = 1;
+}
+
+message GetUserByUsernameRequest {
+    string username = 1;
+}
+
+message GetUserByUsernameResponse {
+    User Users = 1;
+}
+
+message DeleteUserRequest {
+    string user_id = 1;
+}
+
+message DeleteUserResponse {
+    string user_id = 1;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "./;user";
+
+package user;
+
+
+message User {
+    string user_id = 1;
+    string username = 2;
+    double coins = 3;
+}
